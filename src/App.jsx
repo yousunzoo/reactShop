@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
+import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
+import './App.css';
+import banner from './img/main-banner.jpeg';
+import product1 from './img/product_01.jpeg';
+import product2 from './img/product_02.jpeg';
+import product3 from './img/product_03.jpeg';
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	return (
+		<div className='App'>
+			<Navbar bg='dark' variant='dark'>
+				<Container>
+					<Navbar.Brand href='#home'>Electronic Shop</Navbar.Brand>
+					<Nav className='me-auto'>
+						<Nav.Link href='#home'>Home</Nav.Link>
+						<Nav.Link href='#features'>Cart</Nav.Link>
+						<Nav.Link href='#pricing'>Login</Nav.Link>
+					</Nav>
+				</Container>
+			</Navbar>
+			<div className='main-bg' style={{ backgroundImage: 'url(' + banner + ')' }}></div>
+			<Container>
+				<Row>
+					<Col>
+						<img src={product1} width='80%' />
+						<h4>유닉스 드라이어 UN-A1454</h4>
+						<p>상품설명</p>
+					</Col>
+					<Col>
+						<img src={product2} width='80%' />
+						<h4>로지텍 무선 콤보 MK275</h4>
+						<p>상품설명</p>
+					</Col>
+					<Col>
+						<img src={product3} width='80%' />
+						<h4>[로지텍코리아] 무선마우스 M280 블랙</h4>
+						<p>상품설명</p>
+					</Col>
+				</Row>
+			</Container>
+		</div>
+	);
 }
 
-export default App
+export default App;
