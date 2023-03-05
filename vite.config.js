@@ -1,10 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+/**
+ * @param match
+ * Regular expression in string or Regexp type,
+ *  or a match predicate  (this: vite transform context, code: string, id: file name string) => void
+ * @returns transformed code
+ */
+import requireTransform from 'vite-plugin-require-transform';
+
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    port:3000
-  }
-})
+	plugins: [react(), requireTransform({})],
+	server: {
+		port: 3000,
+	},
+});
