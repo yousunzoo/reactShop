@@ -46,3 +46,8 @@
 	background-position: center;
 	margin-bottom: 100px;
 }
+
+nav .container .me-auto a {
+	padding: 0 10px;
+	color: white;
+}

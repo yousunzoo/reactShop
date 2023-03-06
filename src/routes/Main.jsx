@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import Card from './Card';
+import Card from '../components/Card';
 import banner from '../img/main-banner.jpeg';
 import productData from '../data';
 function Main() {
