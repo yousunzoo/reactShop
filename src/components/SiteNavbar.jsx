@@ -17,7 +17,7 @@ function SiteNavbar() {
 					</Nav.Link>
 					<Nav.Link
 						onClick={() => {
-							navi('/login');
+							navigate('/login');
 						}}>
 						Login
 					</Nav.Link>
