@@ -51,3 +51,11 @@ nav .container .me-auto a {
 	padding: 0 10px;
 	color: white;
 }
+
+.start {
+	opacity: 0;
+}
+.end {
+	opacity: 1;
+	transition: opacity 0.5s;
+}

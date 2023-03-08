@@ -1,4 +1,4 @@
-import './App.module.css';
+import './App.css';
 import SiteNavbar from './components/SiteNavbar';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Main from './routes/Main';
