@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Nav } from 'react-bootstrap';
+import TabContent from './TabContent';
 function Detail(props) {
 	let [isNum, setIsNum] = useState(true);
 	let [quantity, setQuantity] = useState(0);
+	let [tab, setTab] = useState(0);
 	// useEffect 안의 코드는 렌더링 후에 동작
 	// 어려운 연산/ 서버에서 데이터 가져오는 작업/ 타이머 장착은 useEffect 안에서
 	//
@@ -21,7 +23,7 @@ function Detail(props) {
 		<div className='container'>
 			<div className='row'>
 				<div className='col-md-6'>
-					<img src={`https://codingapple1.github.io/shop/shoes${item.id}.jpg`} width='100%' />
+					<img src={`https://codingapple1.github.io/shop/shoes${productData.id + 1}.jpg`} width='100%' />
 				</div>
 				<div className='col-md-6'>
 					<h4 className='pt-5'>{productData.title}</h4>
@@ -36,6 +38,36 @@ function Detail(props) {
 					<button className='btn btn-danger'>주문하기</button>
 				</div>
 			</div>
+			<Nav variant='tabs' defaultActiveKey='link0'>
+				<Nav.Item>
+					<Nav.Link
+						onClick={() => {
+							setTab(0);
+						}}
+						eventKey='link0'>
+						버튼0
+					</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link
+						onClick={() => {
+							setTab(1);
+						}}
+						eventKey='link1'>
+						버튼1
+					</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link
+						onClick={() => {
+							setTab(2);
+						}}
+						eventKey='link2'>
+						버튼2
+					</Nav.Link>
+				</Nav.Item>
+			</Nav>
+			<TabContent tab={tab} />
 		</div>
 	);
 }
