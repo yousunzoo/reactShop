@@ -10,7 +10,7 @@ function Card(props) {
 			onClick={() => {
 				navigate(`/detail/${id}`);
 			}}>
-			<img src={imgUrl} width='80%' />
+			<img src={`https://codingapple1.github.io/shop/shoes${id + 1}.jpg`} width='80%' />
 			<h4>{title}</h4>
 			<p>{price}</p>
 			<p>{content}</p>
