@@ -5,16 +5,27 @@ import Main from './routes/Main';
 import Detail from './routes/Detail';
 import About from './routes/About';
 import Events from './routes/Events';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import data from './data';
+
+export let Context1 = createContext();
+
 function App() {
 	let [productData] = useState(data);
+	let [remains] = useState([10, 11, 12]);
 	return (
 		<div className='App'>
 			<SiteNavbar />
 			<Routes>
 				<Route path='/' element={<Main />} />
-				<Route path='/detail/:id' element={<Detail data={productData} />} />
+				<Route
+					path='/detail/:id'
+					element={
+						<Context1.Provider value={{ remains }}>
+							<Detail data={productData} />
+						</Context1.Provider>
+					}
+				/>
 				<Route path='/about' element={<About />}>
 					<Route path='member' element={<div>member</div>} />
 					<Route path='location' element={<div>location</div>} />

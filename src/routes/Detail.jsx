@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import TabContent from './TabContent';
+
+import { Context1 } from './../App';
+
 function Detail(props) {
+	let { remains } = useContext(Context1);
 	let [isNum, setIsNum] = useState(true);
 	let [quantity, setQuantity] = useState(0);
 	let [tab, setTab] = useState(0);
@@ -34,6 +38,7 @@ function Detail(props) {
 					<h4 className='pt-5'>{productData.title}</h4>
 					<p>{productData.content}</p>
 					<p>{productData.price}원</p>
+					<p>재고 : {remains[0]}</p>
 					<input
 						onChange={(e) => {
 							setQuantity(e.target.value);
@@ -72,7 +77,7 @@ function Detail(props) {
 					</Nav.Link>
 				</Nav.Item>
 			</Nav>
-			<TabContent tab={tab} />
+			<TabContent tab={tab} shoes={productData} />
 		</div>
 	);
 }
